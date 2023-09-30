@@ -1,8 +1,8 @@
-import { appRouter } from '../../trpc-server';
-import { features as featuresData } from '../../db/data/features';
+import { appRouter } from "../../trpc-server";
+import { features as featuresData } from "../../db/data/features-example";
 
-describe('features.listFeatures', () => {
-  test('returns a list of features', async () => {
+describe("features.listFeatures", () => {
+  test("returns a list of features", async () => {
     const caller = appRouter.createCaller({});
 
     const features = await caller.features.listFeatures();

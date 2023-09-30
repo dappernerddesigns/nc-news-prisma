@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-import { CategoryData, categories } from './data/categories';
-import { FeatureData, features } from './data/features';
+import { PrismaClient } from "@prisma/client";
+import { CategoryData, categories } from "./data/categories-example";
+import { FeatureData, features } from "./data/features-example";
 
 const prisma = new PrismaClient();
 

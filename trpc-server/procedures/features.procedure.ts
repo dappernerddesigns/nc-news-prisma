@@ -1,6 +1,6 @@
-import { z } from 'zod';
-import { procedure } from '../trpc';
-import { findFeatures } from '../models/features.models';
+import { z } from "zod";
+import { procedure } from "../trpc";
+import { findFeatures } from "../models/features-example.models";
 
 export const listFeatures = procedure
   .output(
