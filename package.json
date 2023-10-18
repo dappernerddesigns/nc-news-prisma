@@ -1,5 +1,5 @@
 {
-  "name": "Next trpc prisma template",
+  "name": "nc-news-trpc",
   "version": "1.0.0",
   "description": "A blank template to make full stack Next applications.",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "build-storybook": "storybook build"
   },
   "prisma": {
-    "seed": "ts-node db/seed.ts"
+    "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
