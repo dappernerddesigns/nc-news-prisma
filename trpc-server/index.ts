@@ -1,9 +1,10 @@
-import { featuresRouter } from "./routers/features-example.router";
+import { topicsRouter } from "./routers/topics.router";
+import { articlesRouter } from "./routers/articles.router";
 import { router } from "./trpc";
 
 export const appRouter = router({
-  // remote this router and make your own
-  features: featuresRouter,
+  topics: topicsRouter,
+  articles: articlesRouter,
 });
 // Export type router type signature,
 // NOT the router itself.
