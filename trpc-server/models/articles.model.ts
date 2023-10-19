@@ -25,3 +25,8 @@ export const findArticles = async () => {
   });
   return articles;
 };
+
+export const findArticleById = async (article_id: number) => {
+  const article = await prisma.articles.findUnique({ where: { article_id } });
+  return article;
+};
