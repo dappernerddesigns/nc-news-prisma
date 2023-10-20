@@ -1,7 +1,8 @@
 import { appRouter } from "../../trpc-server";
 import { datedArticles as articlesData } from "../../db/data/test-data/articles";
+import { TRPCError } from "@trpc/server";
 
-describe("Articles.listArticles", () => {
+describe("Article by Id", () => {
   test("Returns an article by article_id", async () => {
     const caller = appRouter.createCaller({});
     const article = await caller.articles.listArticleById({ article_id: 1 });
@@ -21,7 +22,21 @@ describe("Articles.listArticles", () => {
     expect(article).toHaveProperty("created_at");
   });
 
-  test("Returns a list of topics", async () => {
+  test("Throws a 404 for a valid id that has no records", async () => {
+    const caller = appRouter.createCaller({});
+    try {
+      const noArticle = await caller.articles.listArticleById({
+        article_id: 999,
+      });
+    } catch (err) {
+      expect(err).toBe("404 Article not found");
+    }
+  });
+
+  test.todo("Throws a 400 for a bad request", async () => {});
+});
+describe("Articles.listArticles", () => {
+  test("Returns a list of articles", async () => {
     const caller = appRouter.createCaller({});
     const articles = await caller.articles.listArticles();
 

@@ -27,6 +27,11 @@ export const findArticles = async () => {
 };
 
 export const findArticleById = async (article_id: number) => {
-  const article = await prisma.articles.findUnique({ where: { article_id } });
-  return article;
+  try {
+    const article = await prisma.articles.findUnique({ where: { article_id } });
+    if (article === null) {
+      throw new Error("404 Article not found");
+    }
+    return article;
+  } catch (err) {}
 };
